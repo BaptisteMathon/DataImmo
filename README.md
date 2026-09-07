@@ -38,9 +38,10 @@ source .venv/bin/activate
 
 Ainsi qu'un fichier DVF brut dans le dossier 'data/raw'.
 Commande pour télécharger les données du département du Nord (59) :
-'''bash
+
+```bash
 curl -L -o data/raw/dvf_59_2024.csv.gz "https://files.data.gouv.fr/geo-dvf/latest/csv/2024/departements/59.csv.gz"
-'''
+```
 
 2. Exécuter le script :
 
