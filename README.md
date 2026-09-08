@@ -53,6 +53,11 @@ python3 script/main.py
 
 ## Livrable 2 - Passage à Spark
 
+Bibliothèques à installer :
+'''bash
+pip install pyspark jupyter ipykernel
+'''
+
 Capture d'écran du résultat de l'agrégation et du plan d'éxecution :
 
 ![alt text](<Img/Capture d’écran 2026-09-08 à 20.18.18.png>)
