@@ -50,3 +50,22 @@ python3 script/main.py
 ```
 
 3. Il ne reste plus qu'à consulter le rapport généré dans la console de votre terminal, ainsi que le fichier parquet dans le dossier 'data/clean'.
+
+## Livrable 2 - Passage à Spark
+
+Capture d'écran du résultat de l'agrégation et du plan d'éxecution :
+
+![alt text](<Img/Capture d’écran 2026-09-08 à 20.18.18.png>)
+
+- Le tableau affiche le prix moyen au m2 agrégé par commune et par type de bien
+- Le "== Physical Plan ==" est déclenché par l'instruction .explain(). Il permet de visualiser comment Spark exécute le code. On y retrouve :
+  - La lecture du fichier (FileScan csv)
+  - L'application des filtres pour écarter les données non pertinentes (Filter)
+  - La préparation des colonnes (Project)
+  - Les opérations d'agrégation et de jointure (HashAggregate)
+
+Capture d'écran de l'interface web Spark :
+
+![alt text](Img/spark.png)
+
+Cette interface de Spark nous permet de visualiser comment Spark exécute le code. Ce sont comme des logs, de chaque exécution / utilisation de Spark.
