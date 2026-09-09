@@ -75,3 +75,21 @@ Capture d'écran de l'interface web Spark :
 ![alt text](Img/spark.png)
 
 Cette interface de Spark nous permet de visualiser comment Spark exécute le code. Ce sont comme des logs, de chaque exécution / utilisation de Spark.
+
+## Livrable 3 - Analyse massive & performance
+
+Voir le README suivant : [text](benchmark.md)
+
+Voici la commande a effectuer afin de récupérer les fichier dvf de 2021 à 2024 :
+
+```bash
+for annee in 2020 2021 2022 2023 2024; do
+   curl -L -o "data/raw/dvf_full_${annee}.csv.gz" "https://files.data.gouv.fr/geo-dvf/latest/csv/${annee}/full.csv.gz"
+done
+```
+
+Et la commande pour récupérer le fichier communes_france :
+
+```bash
+curl -L -o data/raw/communes_france.csv "https://www.data.gouv.fr/fr/datasets/r/dbe8a621-a9c4-4bc3-9cae-be1699c5ff25"
+```
