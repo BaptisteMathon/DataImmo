@@ -1,0 +1,88 @@
+{
+  "info": {
+    "_postman_id": "3ec51ff7-502d-4437-b357-e843d59a6ba9",
+    "name": "Data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52114284",
+    "_collection_link": "https://go.postman.co/collection/52114284-3ec51ff7-502d-4437-b357-e843d59a6ba9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Statistique d'un département",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/departements/13/stats",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "departements",
+            "13",
+            "stats"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Evolution nationale par année",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/evolution",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "evolution"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Top des communes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/top-communes?limit=10",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "top-communes"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

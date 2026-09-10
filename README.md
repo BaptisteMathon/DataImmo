@@ -93,3 +93,49 @@ Et la commande pour récupérer le fichier communes_france :
 ```bash
 curl -L -o data/raw/communes_france.csv "https://www.data.gouv.fr/fr/datasets/r/dbe8a621-a9c4-4bc3-9cae-be1699c5ff25"
 ```
+
+## Livrable 4 - Visualisation & API
+
+Ce livrable permet de représenter des données agrégées de 2021 à 2024 à travers plusieurs graphique et une API Flask.
+
+Avant de visualiser les différents graphiques, ainsi que d'utiliser l'API il faut installer les bibliothèques suivantes:
+
+```bash
+pip install folium seaborn flask
+```
+
+Et Voici le résultat de ce livrable avec des captures d'écrans.
+
+### 1ere partie du livrable - Visualisations des données via des graphiques et une carte de la France
+
+- _Premier graphique :_ Evolution des prix au m2 (via Matplotlib)
+
+![alt text](<visualisations/Evolution prix moyen au m2.png>)
+
+- _Deuxieme graphique :_ Volumes de ventes par mois (via Matplotlib)
+
+![alt text](<visualisations/Volume de ventes par mois.png>)
+
+- _Troisième graphique :_ Distribution Maison VS Appartement (via Seaborn)
+
+![alt text](<visualisations/Distribution des prix au m2.png>)
+
+- _Carte interactive :_ Carte choroplèthe de la France du prix au m2 par département (via Folium)
+
+![alt text](<visualisations/Carte de la France.png>)
+
+### 2e partie du livrable - API Flask
+
+3 requètes ont été implémenté dans l'API Flask:
+
+- 1ere requete : Statistique d'un département
+
+![alt text](<visualisations/requete 1.png>)
+
+- 2e requete : Evolution nationale par année
+
+![alt text](<visualisations/requete 2.png>)
+
+- 3e requete : Un top des communes (possiblité de choisir le nombre de communes dans le top)
+
+![alt text](<visualisations/requete 3.png>)
