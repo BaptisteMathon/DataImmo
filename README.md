@@ -139,3 +139,29 @@ Et Voici le résultat de ce livrable avec des captures d'écrans.
 - 3e requete : Un top des communes (possiblité de choisir le nombre de communes dans le top)
 
 ![alt text](<visualisations/requete 3.png>)
+
+## Livrable 5 - Stockage distribué
+
+Le but de ce Livrable est de stocker des données de manière distribuée.
+
+Pour ce faire nous aurons besoin de ces 2 bibliothèques suivantes:
+
+```bash
+pip install pymongo boto3
+```
+
+Lors de ce livrable nous avons mis en place MinIO grâce à Docker.
+MinIO nous a permis de créer différents Buckets.
+1er Bucket 'dataimmo_raw' où nous retrouverons toutes nos données 'non trié/filtré...'
+Le code du MinIO/main.py : lis le contenu du fichier dvf_full_2024.csv.gz présent dans le bucket 'dataimmo_raw'.
+Ce fichier est ensuite manipulé pour être filtré, afin d'y garder seulement les données pertinentes.
+Lorsque ce fichier a été filtré, il est exporté vers un nouveau bucket 'dataimmo_clean'.
+Et pour finir, un dernier calcul des agrégats finaux est effectué, et stocké dans MongoDB.
+
+Nous avons par la suite adapter notre api du livrable 4 pour qu'elle puisse communiquer avec MongoDB. Présente dans MinIO/api.py.
+
+<u>Dans quels cas Spark est-il le mauvais outil : </u>
+
+Comme vu lors du benchmark, Spark est intéressant pour des calculs avec de grosses données, cependant il n'est pas toujours nécessaire.
+Si l'on essaie de traiter un petit fichier de quelques centaines/milier de lignes Spark devient une mauvaise idée. Le temps que met Spark à démarrer et à distribuer des tâches sur la machines, fait qu'il est beaucoup plus lent qu'un script Pandas.
+Spark est également inadapté pour faire des caluls en temps réel ou répondre instantanément aux intéractions d'un utilisateur (sur un site web ou une application par exemple). Il est plus utile et intéressant de l'utiliser sur des gros fichiers de données en arrière plan (par exemple le faire tourner la nuit pour mettre à jour une base de données selon les données/informations du jour). Mais lorsque l'on souhaite rechercher une information précise instantanément (ou quasiment), on se rend compte qu'une base de donnée comme MongoDB est plus efficace.
