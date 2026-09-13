@@ -4,3 +4,4 @@ data/
 .venv/
 script/__pycache__/
 script/test.py
+.DS_Store
