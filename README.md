@@ -149,6 +149,32 @@ Ce fichier est ensuite manipulé pour être filtré, afin d'y garder seulement l
 Lorsque ce fichier a été filtré, il est exporté vers un nouveau bucket 'dataimmo_clean'.
 Et pour finir, un dernier calcul des agrégats finaux est effectué, et stocké dans MongoDB.
 
+Afin de lancer MinIO via Docker, il faudra exécuter la commande suivante à la racine du projet :
+
+```bash
+docker compose up -d
+```
+
+Et pour l'arrêter :
+
+```bash
+docker compose down
+```
+
+Voici le lien de l'interface web de MinIO : http://localhost:9001/minio/login
+user : minioadmin
+password : minioadmin
+
+Et il faudra également démarrer MongoDB afin d'y stocker les agrégats finaux qui seront utilisé par l'API:
+
+Si MongoDB est installé localement sur votre machine : Assuez-vous que le service mongod est démarré (par défaut sur le port 27017)
+
+Sinon faire la commande suivante (avec Docker):
+
+```bash
+docker run -d -p 27017:27017 --name mongodb mongo
+```
+
 Nous avons par la suite adapter notre api du livrable 4 pour qu'elle puisse communiquer avec MongoDB. Présente dans MinIO/api.py.
 
 <u>Dans quels cas Spark est-il le mauvais outil : </u>

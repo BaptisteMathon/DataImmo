@@ -30,7 +30,11 @@ def run_pipeline(annee):
 
         df_raw = spark.read.option("header", "true").csv(local_file)
 
-        df_clean = df_raw.withColumn(
+        df_no_dup = df_raw.dropDuplicates(["id_mutation"])
+
+        df_clean_nulls = df_no_dup.filter(col("valeur_fonciere").isNotNull() & col("surface_reelle_bati").isNotNull())
+
+        df_clean = df_clean_nulls.withColumn(
             "prix_m2",
             col("valeur_fonciere").cast("double") / col("surface_reelle_bati").cast("double")
         ).filter(
