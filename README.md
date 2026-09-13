@@ -20,10 +20,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Installer les bibliothèques suivantes :
-   '''bash
-   pip install pandas
-   '''
+2. Installation de toutes les bibliothèques du projet:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Bibliothèques utiliser pour ce livrable : **Pandas**
 
 ### Utilisation :
 
@@ -53,11 +56,7 @@ python3 script/main.py
 
 ## Livrable 2 - Passage à Spark
 
-Bibliothèques à installer :
-
-```bash
-pip install pyspark jupyter ipykernel
-```
+Lors de ce livrable les bibliothèques suivantes seront utilisées : **pyspark** **jupyter** **ipykernel**
 
 Capture d'écran du résultat de l'agrégation et du plan d'éxecution :
 
@@ -98,11 +97,7 @@ curl -L -o data/raw/communes_france.csv "https://www.data.gouv.fr/fr/datasets/r/
 
 Ce livrable permet de représenter des données agrégées de 2021 à 2024 à travers plusieurs graphique et une API Flask.
 
-Avant de visualiser les différents graphiques, ainsi que d'utiliser l'API il faut installer les bibliothèques suivantes:
-
-```bash
-pip install folium seaborn flask
-```
+Lors de livrable les bibliothèques suivantes seront utilisées : **folium** **seaborn** **flask**
 
 Et Voici le résultat de ce livrable avec des captures d'écrans.
 
@@ -144,11 +139,7 @@ Et Voici le résultat de ce livrable avec des captures d'écrans.
 
 Le but de ce Livrable est de stocker des données de manière distribuée.
 
-Pour ce faire nous aurons besoin de ces 2 bibliothèques suivantes:
-
-```bash
-pip install pymongo boto3
-```
+Lors de ce livrable nous utiliserons les bibliothèques suivantes : **pymongo** **boto3**
 
 Lors de ce livrable nous avons mis en place MinIO grâce à Docker.
 MinIO nous a permis de créer différents Buckets.
